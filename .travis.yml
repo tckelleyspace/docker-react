@@ -1,0 +1,10 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t tkelleyspace/docker-react -f Dockerfile.dev .
+
+script:
+    - docker run -e CI=true tkelleyspace/docker-react npm run test
+     
